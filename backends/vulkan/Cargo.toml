@@ -1,0 +1,16 @@
+[package]
+name = "crossgpu-backend-vulkan"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+crossgpu-core = { path = "../../core" }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+log = { workspace = true }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+vulkano = { workspace = true }
