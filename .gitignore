@@ -1,0 +1,42 @@
+# Rust
+/target
+**/*.rs.bk
+*.pdb
+Cargo.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# WASM
+wasm/pkg/
+wasm/target/
+*.wasm
+*.js
+node_modules/
+
+# Build artifacts
+*.o
+*.so
+*.dll
+*.dylib
+*.a
+
+# Test artifacts
+*.profraw
+*.profdata
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+/tmp
+*.tmp

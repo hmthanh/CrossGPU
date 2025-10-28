@@ -1,0 +1,14 @@
+[package]
+name = "crossgpu-backend-cpu"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+crossgpu-core = { path = "../../core" }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+ndarray = { workspace = true }
+log = { workspace = true }

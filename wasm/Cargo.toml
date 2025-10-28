@@ -1,0 +1,22 @@
+[package]
+name = "crossgpu-wasm"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+crossgpu-core = { path = "../core" }
+crossgpu-backend-webgpu = { path = "../backends/webgpu" }
+wasm-bindgen = { workspace = true }
+wasm-bindgen-futures = { workspace = true }
+web-sys = { workspace = true }
+console_error_panic_hook = { workspace = true }
+log = { workspace = true }
+wasm-logger = "0.2"
+
+

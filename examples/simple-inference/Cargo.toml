@@ -1,0 +1,23 @@
+[package]
+name = "simple-inference"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "simple-inference"
+path = "src/main.rs"
+
+[dependencies]
+crossgpu-core = { path = "../../core" }
+crossgpu-backend-cpu = { path = "../../backends/cpu" }
+crossgpu-backend-webgpu = { path = "../../backends/webgpu" }
+crossgpu-backend-vulkan = { path = "../../backends/vulkan" }
+crossgpu-backend-metal = { path = "../../backends/metal" }
+crossgpu-backend-dx12 = { path = "../../backends/dx12" }
+anyhow = { workspace = true }
+tokio = { workspace = true }
+log = { workspace = true }
+env_logger = { workspace = true }
