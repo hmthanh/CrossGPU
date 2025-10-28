@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-10-28T15:35:44Z",
+  "platform": "Darwin",
+  "arch": "arm64",
+  "rust_version": "rustc 1.90.0 (1159e78c4 2025-09-14)",
+  "benchmarks": [
+    {
+      "name": "cargo test (all)",
+      "iterations": 5,
+      "times_ms": [19150,266,274,268,294],
+      "avg_ms": 4050,
+      "min_ms": 266,
+      "max_ms": 19150
+    },
+    {
+      "name": "simple-inference",
+      "iterations": 5,
+      "times_ms": [14,11,11,11,11],
+      "avg_ms": 11,
+      "min_ms": 11,
+      "max_ms": 14
+    },
+    {
+      "name": "cargo check (all)",
+      "iterations": 5,
+      "times_ms": [635,101,93,92,93],
+      "avg_ms": 202,
+      "min_ms": 92,
+      "max_ms": 635
+    },
+    {
+      "name": "cargo build (debug)",
+      "iterations": 5,
+      "times_ms": [119,97,96,100,103],
+      "avg_ms": 103,
+      "min_ms": 96,
+      "max_ms": 119
+    }
+  ]
+}
