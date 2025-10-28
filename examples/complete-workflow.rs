@@ -153,7 +153,10 @@ fn create_transformer_model(config: &TransformerConfig) -> Result<TransformerMod
     );
 
     log::info!("Model created successfully");
-    log::info!("Estimated model size: ~{} MB", model.config.estimate_size() / 1_000_000);
+    log::info!(
+        "Estimated model size: ~{} MB",
+        model.config.estimate_size() / 1_000_000
+    );
 
     Ok(model)
 }
@@ -245,10 +248,7 @@ fn demonstrate_kernels(device: &Arc<dyn GpuDevice>) -> Result<()> {
 }
 
 /// Run a complete inference workflow
-fn run_inference_workflow(
-    model: &TransformerModel,
-    device: &Arc<dyn GpuDevice>,
-) -> Result<()> {
+fn run_inference_workflow(model: &TransformerModel, device: &Arc<dyn GpuDevice>) -> Result<()> {
     log::info!("\n=== Inference Workflow ===");
 
     // Create input sequence
@@ -270,7 +270,10 @@ fn run_inference_workflow(
     let mut gpu_tensor = device.upload_tensor(&embedded)?;
 
     // 3. Process through transformer layers
-    log::debug!("Step 3: Processing through {} layers", model.config.n_layers);
+    log::debug!(
+        "Step 3: Processing through {} layers",
+        model.config.n_layers
+    );
     for i in 0..model.config.n_layers {
         log::debug!("  Processing layer {}/{}", i + 1, model.config.n_layers);
 

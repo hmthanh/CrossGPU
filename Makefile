@@ -1,7 +1,7 @@
 # CrossGPU Development Makefile
 # Convenience commands for common development tasks
 
-.PHONY: help build test clean fmt lint check doc run-example wasm install-tools
+.PHONY: help build test clean fmt lint check doc run run-example run-workflow wasm install-tools
 
 # Default target
 help:
@@ -28,8 +28,14 @@ help:
 	@echo "  make doc-private    - Generate docs including private items"
 	@echo ""
 	@echo "Run:"
+	@echo "  make run            - Run simple-inference example (alias)"
 	@echo "  make run-example    - Run simple-inference example"
 	@echo "  make run-workflow   - Run complete-workflow example"
+	@echo ""
+	@echo "Workflows:"
+	@echo "  make ci             - Run all CI checks locally"
+	@echo "  make dev            - Quick development checks (fmt+lint+test)"
+	@echo "  make release        - Full release build"
 	@echo ""
 	@echo "Clean:"
 	@echo "  make clean          - Remove build artifacts"
@@ -111,6 +117,9 @@ doc-private:
 	@cargo doc --no-deps --document-private-items --open
 
 # Run examples
+run: run-example
+	@# Alias for run-example
+
 run-example:
 	@echo "Running simple-inference example..."
 	@RUST_LOG=info cargo run --release --bin simple-inference

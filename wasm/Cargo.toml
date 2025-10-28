@@ -9,6 +9,9 @@ repository.workspace = true
 [lib]
 crate-type = ["cdylib", "rlib"]
 
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-O", "--enable-bulk-memory", "--enable-nontrapping-float-to-int"]
+
 [dependencies]
 crossgpu-core = { path = "../core" }
 crossgpu-backend-webgpu = { path = "../backends/webgpu" }
@@ -18,5 +21,3 @@ web-sys = { workspace = true }
 console_error_panic_hook = { workspace = true }
 log = { workspace = true }
 wasm-logger = "0.2"
-
-
