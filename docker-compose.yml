@@ -1,0 +1,22 @@
+# Docker Compose for CrossGPU Development
+
+version: '3.8'
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/workspace
+      - cargo-cache:/usr/local/cargo/registry
+      - target-cache:/workspace/target
+    environment:
+      - RUST_BACKTRACE=1
+      - RUST_LOG=debug
+    working_dir: /workspace
+    command: /bin/bash
+
+volumes:
+  cargo-cache:
+  target-cache:

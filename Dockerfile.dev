@@ -1,0 +1,30 @@
+# CrossGPU Development Container
+# Use this for consistent development environment across team
+
+FROM rust:1.75
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    pkg-config \
+    libvulkan-dev \
+    vulkan-tools \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Rust toolchain components
+RUN rustup component add rustfmt clippy
+RUN rustup target add wasm32-unknown-unknown
+
+# Install wasm-pack
+RUN curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+# Install additional tools
+RUN cargo install cargo-watch cargo-edit
+
+# Set working directory
+WORKDIR /workspace
+
+# Default command
+CMD ["/bin/bash"]
